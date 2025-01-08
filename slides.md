@@ -313,3 +313,175 @@ Tip - Use preventDefault to make sure the browser doesn't navigate to the detail
 
 [Solution](/dices/part6.js)
 
+---
+
+# Exercise: 
+
+- Open the [start project](/plants/SetupPlants.zip)
+- Run `npm install` in the root of the project
+- Run `npm run start` in the root of the project to spin up the server
+- The html, css is already written for this project
+- Complete the index.js and plant.js files to create a functioning app
+
+---
+
+# Overview of the app
+
+- Show an overview of plants
+- Like plants, saved in local storage
+- Show the details of a plant
+- Search for a plant
+- Sort plants
+- Show liked plants
+
+---
+
+# Plants: Part1, Show plants overview
+
+- Create a function that gets plant as input, this function will add the plant item to the list element
+- The element should look like this
+```html
+<a href="/plant?plantId=77116&slug=quercus-rotundifolia">
+  <div class="plantBox">
+    <img src="https://d2seqvvyy3b8p2.cloudfront.net/40ab8e7cdddbe3e78a581b84efa4e893.jpg"/>
+    <div>
+      <p>Evergreen oak</p>
+    </div>
+  </div>
+</a>
+```
+
+---
+
+# Plants: Part1, Show plants overview
+
+- Complete the content with the content of the plant
+- Make sure to pass in the link to the detail page the id and slug as search params like:   
+  `/plant?plantId=<id>&slug=<slug>`
+
+- When the fetch is done, save the list of plants in a global variable and call the function to show all plants on screen
+
+[Solution](/plants/part1.js)
+
+---
+
+# Plants: Part2, Like plants
+
+- Add a heart icon with button to every plant
+- The id's of all liked plants should be saved in localStorage
+- Create a separate function that creates a button with the correct icon and handles the like, save and show functionality
+- Call this function in the plants function to add the button to the UI, the complete UI should look like: 
+
+```html
+<a href="/plant?plantId=77116&amp;slug=quercus-rotundifolia">
+  <div class="plantBox">
+    <img src="https://d2seqvvyy3b8p2.cloudfront.net/40ab8e7cdddbe3e78a581b84efa4e893.jpg"/>
+    <div>
+      <p>Evergreen oak</p>
+      <button>
+        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</a>
+```
+
+---
+
+# Plants: Part2, Like plants
+
+- The class of the heart icon should be: `fa-regular fa-heart` when it is not liked, when it is liked the class should be: `fa-solid fa-heart`
+- Make sure the type of the id you pass to the function is the correct type
+
+[Solution](/plants/part2.js)
+
+---
+
+# Plants: Part3, Search
+
+- When a user clicks the search button:
+- The plants that match the search with there name should be shown, this should not be capital sensitive
+- The input should be cleared
+- When no plants can be found the message should be displayed
+- This can be done by changing the display style from `none` to `flex`
+
+[Solution](/plants/part3.js)
+
+---
+
+# Plants: Part4, Show liked and sort
+
+- Implement the like and sort buttons
+- When clicked the name should toggle between two names: 
+- `Show liked` <=> `Show all`  /  `Sort alphabetically` <=> `Revert sort`
+- The state of the buttons should also be stored in js so we know what to change it to
+- When no liked plants can be fount, the no items message should be shown as well
+- When liked plants are shown, and you unlike a plant it should also be hidden
+- Sort toggle between alphabetically sorted and normal order
+
+[Solution](/plants/part4.js)
+
+---
+
+# Plants: Part5, Start detail page
+
+- When clicked on the go back button, the user should go back to the previous page
+- When the page loads in, the 2 search params from the url, should be set in these variables: `plantId` and `plantSlug`
+- The plantSlug variable will be used in the url to fetch the correct plant
+- When the data is loaded a function can be called to fill the following items with data from the call:
+  - imageElement - image_url
+  - plantTitleElement - common_name
+  - plantScienceNameElement - scientific_name
+  - plantBibliographyElement - bibliography
+  - plantAuthorElement - author
+  - plantObservationsElement - observations
+
+[Solution](/plants/part5.js)
+
+---
+
+# Plants: Part6, Synonyms and Sources
+
+- Show the names of all the synonyms on screen
+- Every synonym is in it's own p element with className: `plantInfoListItem`
+- Add every synonym to the plantSynonymsList
+
+- Show the names of every source on screen
+- Every source has it's own element, depending on if it has a url or not it should be `a` or `p`
+- Add the url to the a elements so the link will be opened when clicked
+- Every item should have the className: `plantInfoListItem`
+- Add all sources to the plantSourcesList
+
+[Solution](/plants/part6.js)
+
+--- 
+
+# Plants: Part7, Implement like button
+
+- Implement the like button
+- When the page is loaded the correct class should be added to the icon, based on what is in localStorage and the plantId that is passed as a search param
+- When the button is clicked the class should be updated correctly as wel as the state in localStorage
+
+[Solution](/plants/part7.js)
+
+--- 
+
+# Plants: Part8, Show detail images
+
+- In the data you will find an object images whish contains keys of different parts of the plant with a list of images of that part
+- To go over all keys and get the list of images for that key, you can use the following code:
+
+```js
+Object.keys(plant.images).forEach((key) => {
+    const images = plant.images[key];
+});
+```
+
+- In this block key is the name of the part of the plant, and images a list of objects with a link to the image 
+- Implement the forEach further so we add a div with className `plantDetailImageWrapper` for every part 
+- Add a h2 element to this element with the name of the part. The first letter should be a capital letter
+- Underneath that there should be a div with className: `imagesList`
+- In this div we can add a img element for every image with the correct link
+- Every plantDetailImageWrapper should be added to the plantDetailImagesList
+
+[Solution](/plants/part8.js)

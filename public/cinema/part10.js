@@ -1,4 +1,8 @@
 const movieListElement = document.getElementById("list");
+const searchButton = document.getElementById("formButton");
+const searchInput = document.getElementById("input");
+const moviesTodayButtonElement = document.getElementById("moviesTodayButton");
+const sortMoviesButtonElement = document.getElementById("sortMoviesButton");
 
 let inputText = "";
 let movies = [];
