@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Dice.it</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1 id="title">Dice-It</h1>
+    </div>
+    <div class="content">
+      <div class="game">
+        <div class="dices">
+          <div class="dice" id="dice1"></div>
+          <div class="dice" id="dice2"></div>
+          <div class="totalDice" id="totalDice"></div>
+        </div>
+        <div class="buttonWrapper">
+          <button class="rollButton" id="rollButton">Roll!</button>
+        </div>
+        <div class="formInput">
+          <input type="text" id="input" placeholder="Add a player" />
+          <button id="addButton">Add</button>
+        </div>
+        <h2 id="players"></h2>
+        <h2>CurrentPlayer:</h2>
+        <p id="currentPlayer"></p>
+      </div>
+      <div class="results">
+        <div class="resultsList">
+          <h2>History</h2>
+          <div id="resultsList"></div>
+          <div class="buttonWrapper">
+            <button class="resetButton" id="resetButton">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f67469f908.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="buttonRipple.js"></script>
+  </body>
+</html>

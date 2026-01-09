@@ -485,3 +485,202 @@ Object.keys(plant.images).forEach((key) => {
 - Every plantDetailImageWrapper should be added to the plantDetailImagesList
 
 [Solution](/plants/part8.js)
+
+---
+
+# Shoppy: 
+
+- Open the [start project](/store/ShoppySetup.zip)
+- Run `npm install` in the root of the project
+- Run `npm run start` in the root of the project to spin up the server
+- The html, css is already written for this project
+- Complete the index.js and plant.js files to create a functioning app
+
+---
+
+# Overview of the app
+
+- Show an overview of products
+- Put products in a shopping cart
+- Show the details of a product
+- Search for a product
+- Filter products on category
+- Show total price of products in cart
+
+---
+
+# Shoppy: Part1
+
+- Create a function: `showProductInDOM` that gets a product as input
+- This function creates the html elements to show the product in the productsList 
+- The html should look like this:
+```html
+<a href="/product?productId=1">
+  <div class="productBox">
+    <img src="/images/apple.webp">
+    <div class="productInfoBox">
+      <div class="productTextBox">
+        <h3>Apple</h3>
+        <p>10each</p>
+        <p>€5</p>
+      </div>
+      <button>
+        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</a>
+```
+
+[Solution](/store/part1.js)
+
+---
+
+# Shoppy: Part2
+
+- Call the `showProductInDOM` function for every product when the fetch is done
+- When the cart button is clicked the amount of items in the cart should increase
+- This is not visualized, but should be stored in localStorage
+- The cart items should be stored as a JSON in localStorage
+- Example: 
+```json
+{
+  "1": 2,
+  "3": 1,
+  "5": 4,
+  "10": 1
+}
+```
+
+[Solution](/store/part2.js)
+
+---
+layout: image
+image: /store/screenshots/store1.png
+backgroundSize: contain
+---
+
+---
+
+# Shoppy: Part3
+
+- Implement the search functionality
+- When the search button is clicked the products should be filtered based on the search input
+- The search should not be case sensitive
+- The input should be cleared after the search
+- When no products are found the `noItemsFound` element should be shown by changing the display style from `none` to `flex`
+
+[Solution](/store/part3.js)
+
+---
+layout: image
+image: /store/screenshots/store2.png
+backgroundSize: contain
+---
+
+---
+
+# Shoppy: Part4
+
+- If the response is received implement the category filter
+- Get all the unique categories from the products
+- Add these categories as options to the select element with id: `categorySelect`
+- Add as first option: value = "" and innerText = "Not selected"
+- When a category is selected the products should be filtered on that category
+- When the value is "" all products should be shown
+
+[Solution](/store/part4.js)
+
+---
+layout: image
+image: /store/screenshots/store3.png
+backgroundSize: contain
+---
+
+---
+
+# Shoppy: Part5
+
+- On the detail page the productId should be retrieved from the url
+- Create a function `showProductDetails` that fills in all the details of the product:
+  - image: `/images/<imageName>`
+  - name
+  - productAmount: `${product.amount}${product.unit}`
+  - price: productAmount * productPricePerUnit
+  - category
+  - description
+- Create a function `setAmountOfProductInBasket` that retrieves the number of items in the basket from localStorage and also sets it on the screen
+- When the response comes in you get the right product from the list, pass that to showProductDetails
+- When the back button is clicked the browser should go back 
+
+[Solution](/store/part5.js)
+
+---
+layout: image
+image: /store/screenshots/store4.png
+backgroundSize: contain
+---
+
+---
+
+# Shoppy: Part6
+
+- Implement the + and - buttons
+- When the plus button is clicked the amount in localStorage should be updated
+- Then also call the `setAmountOfProductInBasket` to show the new number
+- When the minus button is clicked the amount in localStorage should be updated
+- Make sure the number doesn't go below 0
+- Then also call the `setAmountOfProductInBasket` to show the new number
+
+[Solution](/store/part6.js)
+
+---
+
+# Shoppy: Part7
+
+- Create a function `updateUI` that clears the screen
+- Also creates a list of all items that are in the basket, keep in mind that items with amount 0 should not be shown
+- For every product that needs to be shown you call the `addProductToBasketDOM` function
+- This function creates the following HTML based on the product to add to the basketItemsList 
+```html
+<div class="basketItem">
+  <div class="basketItemInfo">
+    <img src="/images/apple.webp" />
+    <h3>Apple</h3>      
+  </div>
+  <div class="basketItemActions">
+    <button><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+    <p>3</p>
+    <button><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+  </div>
+</div>
+```
+
+---
+
+# Shoppy: Part7 part2
+
+- The buttons are implemented by analogy of the product detail page
+- After updating an amount the updateUI function is called again to update the screen
+- The updateUI is called when the response arrives
+- When the back button is clicked the browser should go back to the previous page
+
+[Solution](/store/part7.js)
+
+---
+layout: image
+image: /store/screenshots/store5.png
+backgroundSize: contain
+---
+
+---
+
+# Shoppy: Part8
+
+- Show the total amount in the `updateUI` function
+- The total amount is calculated per product as follows:
+product.pricePerUnit * product.amount * amountInBasket
+- Then show the total amount with the text: `Total: €<totalAmount>`
+- When the clear button is clicked localStorage should be cleared and the `updateUI` function called again
+
+[Solution](/store/part8.js)

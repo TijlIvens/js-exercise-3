@@ -1,0 +1,14 @@
+{
+  "name": "planty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "light-server -p 4003 -s public/ -o -w \"public/**/*.js, public/**/*.html, public/**/*.css\""
+  },
+  "author": "Tijl",
+  "license": "ISC",
+  "dependencies": {
+    "light-server": "^2.9.1"
+  }
+}

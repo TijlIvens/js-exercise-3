@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Planty</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Planty</h1>
+      <button class="headerGoBack" id="goBackButton">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    <div class="content">
+      <div class="plantDetailBox">
+        <div class="plantDetailMain">
+          <div class="plantDetailImages">
+            <img id="image" />
+          </div>
+          <div class="plantDetailContent">
+            <div class="plantDetailContentHeader">
+              <h1 id="plantTitle"></h1>
+              <button id="plantLikeButton">
+                <i id="plantLikeIcon"></i>
+              </button>
+            </div>
+            <p class="plantDetailText">
+              <span class="plantDetailTextBold">Scientific name: </span>
+              <span id="plantScienceName"></span>
+            </p>
+            <p class="plantDetailText">
+              <span class="plantDetailTextBold">Bibliography: </span>
+              <span id="plantBibliography"></span>
+            </p>
+            <p class="plantDetailText">
+              <span class="plantDetailTextBold">Author: </span>
+              <span id="plantAuthor"></span>
+            </p>
+            <p class="plantDetailText">
+              <span class="plantDetailTextBold">Observations: </span>
+              <span id="plantObservations"></span>
+            </p>
+            <p class="plantDetailTextBold">Synonyms:</p>
+            <div class="plantInfoList" id="plantSynonymsList"></div>
+            <p class="plantDetailTextBold">Sources:</p>
+            <div class="plantInfoList" id="plantSourcesList"></div>
+          </div>
+        </div>
+        <div class="plantDetailImagesOverview" id="plantDetailImagesList"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f67469f908.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="plant.js"></script>
+    <script type="text/javascript" src="buttonRipple.js"></script>
+  </body>
+</html>

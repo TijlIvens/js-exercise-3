@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shoppy</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Shoppy</h1>
+      <button class="headerGoBack" id="goBackButton">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    <div class="content">
+      <div class="basketBox">
+        <div class="basketItemsList" id="basketItemsList"></div>
+        <div class="basketTotal">
+          <button id="clearBasketButton">Clear</button>
+          <h3 id="totalAmount"></h3>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f67469f908.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="basket.js"></script>
+    <script type="text/javascript" src="buttonRipple.js"></script>
+  </body>
+</html>

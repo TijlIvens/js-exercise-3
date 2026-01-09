@@ -1,0 +1,197 @@
+.header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(239, 239, 239);
+  padding: 50px;
+  height: 400px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0),
+      rgb(35, 35, 35)
+    ),
+    url("https://images.unsplash.com/photo-1627744842997-81622949c9f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2254&q=80");
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: -150px;
+}
+
+.header h1 {
+  font-size: 100px;
+}
+
+body {
+  background-color: rgb(34, 34, 34);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+}
+
+@media (min-width: 800px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .game {
+    flex: 3;
+  }
+
+  .results {
+    flex: 1;
+  }
+}
+
+.game {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+  color: white;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.resultsList {
+  background-color: rgb(74, 74, 74);
+  border-radius: 20px;
+  flex: 1;
+  height: 90%;
+  max-width: 400px;
+  min-height: 600px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.dices {
+  display: flex;
+  gap: 20px;
+}
+
+.dice {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color: black;
+  font-size: 100px;
+  height: 150px;
+  width: 150px;
+}
+
+.totalDice {
+  background-color: rgb(72, 72, 72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+  height: 150px;
+  width: 150px;
+}
+
+.buttonWrapper {
+  background: linear-gradient(to right, #f9c125, #aebfe7, #6b8fc5);
+  padding: 3px;
+  border-radius: 500px;
+  margin-top: 2rem;
+}
+
+.rollButton {
+  font-size: 2rem;
+  border-width: 0;
+  background-color: rgb(34, 34, 34);
+  padding: 1rem 4rem;
+  border-radius: 500px;
+  color: white;
+}
+
+.resetButton {
+  font-size: 1rem;
+  border-width: 0;
+  background-color: rgb(74, 74, 74);
+  padding: 1rem 4rem;
+  border-radius: 500px;
+  color: rgb(255, 255, 255);
+  width: 100%;
+}
+
+#resultsList {
+  flex: 1;
+  overflow-y: auto;
+}
+
+#currentPlayer {
+  font-size: 100px;
+  color: rgb(173, 173, 173);
+}
+
+.formInput {
+  display: flex;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  width: 100%;
+  border-radius: 100px;
+  background-color: white;
+  max-width: 400px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formInput input {
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  padding-left: 20px;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: 0;
+  transition: background 400ms;
+}
+
+.formInput button {
+  border-radius: 100px;
+  background: linear-gradient(to right, #f9c125, #aebfe7, #6b8fc5);
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  width: 130px;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(248, 248, 248, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
